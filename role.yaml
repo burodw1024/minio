@@ -1,0 +1,13 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: minio-admin-binding
+  namespace: minio
+subjects:
+  - kind: User
+    name: admin      # Your 'root user' (adjust based on auth method)
+    apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: ClusterRole
+  name: admin        # Gives full control
+  apiGroup: rbac.authorization.k8s.io

@@ -1,0 +1,19 @@
+# minio-service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: minio-service
+  namespace: minio
+spec:
+  type: NodePort
+  selector:
+    app: minio
+  ports:
+    - name: api
+      port: 9000
+      targetPort: 9000
+      nodePort: 32100
+    - name: console
+      port: 9001
+      targetPort: 9001
+      nodePort: 32101
